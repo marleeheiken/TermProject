@@ -204,7 +204,7 @@ public class HomeScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"faq");
+                cardLayout.show(cardPanel,"FAQs");
                 //showButtons(false);
             }
         });
