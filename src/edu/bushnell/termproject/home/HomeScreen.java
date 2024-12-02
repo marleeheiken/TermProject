@@ -6,7 +6,6 @@ import edu.bushnell.termproject.onlineadvice.OnlineAdvice;
 import edu.bushnell.termproject.login.Login;
 import edu.bushnell.termproject.faqs.FAQs;
 import edu.bushnell.termproject.welcome.Welcome;
-
 import edu.bushnell.termproject.GUI;
 
 import javax.swing.BorderFactory;
@@ -14,23 +13,16 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import java.awt.Image;
-
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.CardLayout;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.FlowLayout; 
-
 
 class GetImage {
     public JLabel getImage(String filename) {
@@ -91,21 +83,29 @@ public class HomeScreen {
 
 
         Box login = Box.createHorizontalBox();
-
         login.setAlignmentX(Component.LEFT_ALIGNMENT);
-        JButton loginButton = GUI.button("Login", 125, 20, 15);
+        
+        JButton loginButton = GUI.button("Login", 110, 27, 15);
         loginButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        JButton faqButton = GUI.button("FAQs", 125, 20, 15);
+        loginButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
+        loginButton.setForeground(Color.WHITE);  // Set text color to white
+        JButton faqButton = GUI.button("FAQs", 110, 27, 15);
         faqButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+        faqButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
+        faqButton.setForeground(Color.WHITE);  // Set text color to white
+       
+        login.add(Box.createRigidArea(new Dimension(70,40)));
         login.add(loginButton);
-        login.add(Box.createRigidArea(new Dimension(50,0)));
+        login.add(Box.createRigidArea(new Dimension(10,0)));
         login.add(faqButton);
         login.add(Box.createRigidArea(new Dimension(0,20)));
     
-        menuBox.add(loginButton);
-        menuBox.add(faqButton);
-        menuBox.add(Box.createRigidArea(new Dimension(0,20)));
+        // menuBox.add(loginButton);
+        // menuBox.add(faqButton);
+        // menuBox.add(Box.createRigidArea(new Dimension(0,20)));
 
+        menuBox.add(login);
+        menuBox.add(Box.createRigidArea(new Dimension(0, 20))); // Space below the buttons
 
         // Add the Bushnell logo to the left side
         ImageIcon bushnellLogo = new ImageIcon(getClass().getResource("/resources/bushnellLight.png"));
@@ -128,9 +128,18 @@ public class HomeScreen {
         // Create buttons for Appointments, Client Information, and Online Advice
         Box buttons = Box.createVerticalBox();
         buttons.setAlignmentX(Component.LEFT_ALIGNMENT);
-        JButton appointmentButton = GUI.button("Appointment", 300, 30, 20);
-        JButton clientInformationButton = GUI.button("Client Information", 300, 30, 20);
-        JButton onlineAdviceButton = GUI.button("Online Advice", 300, 30, 20);
+        JButton appointmentButton = GUI.button("Appointment", 300, 50, 20);
+        appointmentButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
+        appointmentButton.setForeground(Color.WHITE);  // Set text color to white
+
+        JButton clientInformationButton = GUI.button("Client Information", 300, 50, 20);
+        clientInformationButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
+        clientInformationButton.setForeground(Color.WHITE);  // Set text color to white
+
+        JButton onlineAdviceButton = GUI.button("Online Advice", 300, 50, 20);
+        onlineAdviceButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
+        onlineAdviceButton.setForeground(Color.WHITE);  // Set text color to white
+
         buttons.add(appointmentButton);
         buttons.add(Box.createRigidArea(new Dimension(0,20)));
         buttons.add(clientInformationButton);
@@ -145,6 +154,8 @@ public class HomeScreen {
         JPanel appointmentPanel       = Appointment.MakeGUI();
         JPanel clientInformationPanel = ClientInformation.MakeGUI();
         JPanel onlineAdvicePanel      = OnlineAdvice.MakeGUI();
+        JPanel welcomePanel           = Welcome.MakeGUI();
+
 
         // create a card panel (only one panel visible at a time)
         JPanel cardPanel = new JPanel(new CardLayout());
@@ -153,10 +164,13 @@ public class HomeScreen {
         cardPanel.add(appointmentPanel,"appointment");
         cardPanel.add(clientInformationPanel,"clientInformation");
         cardPanel.add(onlineAdvicePanel,"onlineAdvice");
+        cardPanel.add(welcomePanel,"Welcome");
+
         subMenuBox.add(cardPanel);
 
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-        cardLayout.show(cardPanel,"login");
+        cardLayout.show(cardPanel,"Welcome");
+
         //showButtons(false);
 
 

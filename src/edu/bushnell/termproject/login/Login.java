@@ -1,14 +1,10 @@
 package edu.bushnell.termproject.login;
 
-
 import edu.bushnell.termproject.GUI;
-import edu.bushnell.termproject.home.HomeScreen;
 
-import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -16,8 +12,6 @@ import javax.swing.JTextField;
 import java.awt.Dimension;
 import java.awt.Component;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Login {
 
@@ -69,7 +63,7 @@ public class Login {
         entryBox.add(Box.createRigidArea(new Dimension(0,20)));
 
         // create email number
-        JLabel emailLabel = GUI.text("Enter your Bushnell Username", 420, 30, 20, Color.WHITE, "left");
+        JLabel emailLabel = GUI.text("Enter your Bushnell Username:", 420, 30, 20, Color.WHITE, "left");
         JLabel instructionsLabel = GUI.text("(without @bushnell.edu)", 420, 22, 22, Color.WHITE, "left");
        
         // Create a vertical box for the phone number label and instructions

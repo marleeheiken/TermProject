@@ -1,7 +1,5 @@
 package edu.bushnell.termproject.onlineadvice;
 
-import edu.bushnell.termproject.GUI;
-
 import java.awt.Component;
 import java.awt.Color;
 import javax.swing.JPanel;

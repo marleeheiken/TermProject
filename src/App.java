@@ -5,7 +5,6 @@ import edu.bushnell.termproject.home.HomeScreen;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        
         JFrame frame = new JFrame("TermProject");
         HomeScreen home = new HomeScreen();
         JPanel homePanel = home.MakeGUI();
@@ -15,4 +14,3 @@ public class App {
         frame.setVisible(true);
     }
 }
-
