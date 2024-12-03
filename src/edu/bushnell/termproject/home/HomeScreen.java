@@ -119,9 +119,9 @@ public class HomeScreen {
         
         Box titleBox = Box.createVerticalBox();
         titleBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        titleBox.add(GUI.text("BUSHNELL COUNSELING CENTER", 300, 30, 15, Color.WHITE, "left"));
-        titleBox.add(Box.createRigidArea(new Dimension(0,10)));
-        titleBox.add(GUI.text("Located at: Siefke Hall ", 300, 30, 15, Color.WHITE, "left"));
+        titleBox.add(GUI.text("COUNSELING CENTER", 300, 30, 26, Color.WHITE, "left"));
+        titleBox.add(Box.createRigidArea(new Dimension(0,0)));
+        titleBox.add(GUI.text("755 East 11th Avenue, Eugene, OR 97401 ", 300, 30, 13, Color.WHITE, "left"));
         titleBox.add(Box.createRigidArea(new Dimension(0,50)));
         menuBox.add(titleBox);
 
@@ -149,27 +149,29 @@ public class HomeScreen {
         menuBox.add(buttons);
 
         // create panels for each sub-menu
-        JPanel loginPanel             = Login.MakeGUI();
         JPanel faqPanel               = FAQs.MakeGUI();
         JPanel appointmentPanel       = Appointment.MakeGUI();
         JPanel clientInformationPanel = ClientInformation.MakeGUI();
         JPanel onlineAdvicePanel      = OnlineAdvice.MakeGUI();
         JPanel welcomePanel           = Welcome.MakeGUI();
 
-
+        
         // create a card panel (only one panel visible at a time)
         JPanel cardPanel = new JPanel(new CardLayout());
-        cardPanel.add(loginPanel, "login");
+        JPanel loginPanel             = Login.MakeGUI(cardPanel);
+
         cardPanel.add(faqPanel, "FAQs");
         cardPanel.add(appointmentPanel,"appointment");
         cardPanel.add(clientInformationPanel,"clientInformation");
         cardPanel.add(onlineAdvicePanel,"onlineAdvice");
         cardPanel.add(welcomePanel,"Welcome");
+        cardPanel.add(loginPanel,"Login");
+
 
         subMenuBox.add(cardPanel);
 
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-        cardLayout.show(cardPanel,"Welcome");
+        cardLayout.show(cardPanel,"Login");
 
         //showButtons(false);
 
@@ -209,7 +211,7 @@ public class HomeScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"login");
+                cardLayout.show(cardPanel,"Login");
                 //showButtons(false);
             }
         });

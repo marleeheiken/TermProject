@@ -34,36 +34,37 @@ public class FAQs {
         panel.add(Box.createRigidArea(new Dimension(0,40)));
 
         // Mission FAQ
-        JTextArea missionFAQ = createTextArea(
-            "What is our mission?\n\n" +
-            "Our mission is to provide innovative solutions that enhance user experience " +
-            "and drive technological advancement. We are committed to pushing the boundaries " +
-            "of technology while maintaining a focus on user-centric design and functionality."
+        JTextArea costFAQ = createTextArea(
+            "How much does a session cost?\n\n" +
+            "We are happy to provide service free of charge for all Bushnell students, staff, and faculty, " +
+            " and University of Oregon students. We also serve the general Eugene and greater" +
+            " Lane County area with a rate of just $10 dollars per session" 
         );
-        panel.add(missionFAQ);
+        panel.add(costFAQ);
 
         // Support FAQ
-        JTextArea supportFAQ = createTextArea(
-            "How can I contact support?\n\n" +
-            "You can reach our support team through multiple channels:\n" +
-            "- Email: support@example.com\n" +
-            "- Phone: 1-800-HELP-NOW\n" +
-            "- Live Chat: Available on our website during business hours\n\n" +
-            "Our support team is dedicated to providing prompt and helpful assistance."
+        JTextArea receiveFAQ = createTextArea(
+            "Can I receive counseling at the counseling center even if I am not Christian?\n\n" +
+            "Bushnell University counselors welcome people of any belief system and do" +
+            " not press any particular spiritual philosophy\n" 
         );
-        panel.add(supportFAQ);
+        panel.add(receiveFAQ);
 
-        // Payment FAQ
-        JTextArea paymentFAQ = createTextArea(
-            "What payment methods do you accept?\n\n" +
-            "We accept a variety of payment methods:\n" +
-            "- Major Credit Cards (Visa, MasterCard, American Express)\n" +
-            "- PayPal\n" +
-            "- Bank Transfers\n" +
-            "- Apple Pay and Google Pay\n\n" +
-            "Secure and flexible payment options for our customers."
+        // Who provides counseling FAQ
+        JTextArea whoFAQ = createTextArea(
+            "Who provides the counseling?\n\n" +
+            "The Bushnell University counseling center is a teaching facility" +
+            "where graduate students earning a master’s degree in counseling" +
+            "provide services under the supervision of experienced faculty members." 
         );
-        panel.add(paymentFAQ);
+        panel.add(whoFAQ);
+
+        JTextArea whoQualifiesFAQ = createTextArea(
+            "Who can receive counseling services?\n\n" +
+            "Adults (age 18+) in the community." 
+        );
+        panel.add(whoQualifiesFAQ);
+
 
         return panel;
     }
