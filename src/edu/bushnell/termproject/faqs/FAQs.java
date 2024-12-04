@@ -1,7 +1,5 @@
 package edu.bushnell.termproject.faqs;
 
-import edu.bushnell.termproject.GUI;
-
 import java.awt.Component;
 import java.awt.Color;
 import javax.swing.JPanel;

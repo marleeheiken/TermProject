@@ -24,208 +24,190 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.CardLayout;
 
+// Class for loading images from the resources directory
 class GetImage {
     public JLabel getImage(String filename) {
-        return new JLabel(new ImageIcon(getClass().getResource("/resources/"+filename)));
+        // Returns a JLabel containing the specified image from the resources folder
+        return new JLabel(new ImageIcon(getClass().getResource("/resources/" + filename)));
     }
 }
 
 public class HomeScreen {
 
-    // JButton appointmentButton;
-    // JButton clientInformationButton;
-    // JButton onlineAdviceButton;
-    
-    // private void showButtons(boolean visible) {
-    //     appointmentButton.setVisible(visible);
-    //     clientInformationButton.setVisible(visible);
-    //     onlineAdviceButton.setVisible(visible);
-    // }
-
     public JPanel MakeGUI() {
 
-        Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
-
-        // Create a main panel
+        // Create the main panel with a horizontal BoxLayout
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS)); // Horizontal alignment
-        mainPanel.setPreferredSize(new Dimension(1550, 800));
-        mainPanel.setMaximumSize(new Dimension(1550, 800));
-        mainPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mainPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
+        mainPanel.setPreferredSize(new Dimension(1550, 800)); // Set preferred size
+        mainPanel.setMaximumSize(new Dimension(1550, 800)); // Set maximum size
+        mainPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center horizontally
+        mainPanel.setAlignmentY(Component.TOP_ALIGNMENT); // Align to the top vertically
 
-        String bushnellBlueHashCode = "#011E40";  // Set panel to a background color based on a RGB hashcode
+        // Set the background color using Bushnell blue
+        String bushnellBlueHashCode = "#011E40";
         Color bushnellBlue = Color.decode(bushnellBlueHashCode);
         mainPanel.setBackground(bushnellBlue);
 
+        // Create a horizontal box to hold the layout
         Box homeBox = Box.createHorizontalBox();
-        homeBox.setAlignmentX(Component.CENTER_ALIGNMENT);
-        homeBox.setAlignmentY(Component.TOP_ALIGNMENT);
-        Box menuBox = Box.createVerticalBox();
-        menuBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        menuBox.setAlignmentY(Component.TOP_ALIGNMENT);
+        homeBox.setAlignmentX(Component.CENTER_ALIGNMENT); // Center horizontally
+        homeBox.setAlignmentY(Component.TOP_ALIGNMENT); // Align to the top
 
+        // Create a vertical menu box for navigation
+        Box menuBox = Box.createVerticalBox();
+        menuBox.setAlignmentX(Component.LEFT_ALIGNMENT); // Align to the left
+        menuBox.setAlignmentY(Component.TOP_ALIGNMENT); // Align to the top
+
+        // Create a sub-menu box with specified dimensions and a white border
         Box subMenuBox = Box.createHorizontalBox();
         subMenuBox.setPreferredSize(new Dimension(1200, 720));
         subMenuBox.setMaximumSize(new Dimension(1200, 720));
         subMenuBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        subMenuBox.setAlignmentX(Component.CENTER_ALIGNMENT);
-        subMenuBox.setAlignmentY(Component.TOP_ALIGNMENT);
-        homeBox.add(Box.createRigidArea(new Dimension(20,0)));
+        subMenuBox.setAlignmentX(Component.CENTER_ALIGNMENT); // Center horizontally
+        subMenuBox.setAlignmentY(Component.TOP_ALIGNMENT); // Align to the top
+
+        // Add spacing and components to the homeBox
+        homeBox.add(Box.createRigidArea(new Dimension(20, 0)));
         homeBox.add(menuBox);
-        homeBox.add(Box.createRigidArea(new Dimension(20,0)));
+        homeBox.add(Box.createRigidArea(new Dimension(20, 0)));
         homeBox.add(subMenuBox);
-        homeBox.add(Box.createRigidArea(new Dimension(20,0)));
-        
-        
-        mainPanel.add(Box.createRigidArea(new Dimension(0,20)));
+        homeBox.add(Box.createRigidArea(new Dimension(20, 0)));
+
+        // Add the homeBox to the main panel with spacing
+        mainPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         mainPanel.add(homeBox);
 
-
+        // Create a horizontal box for login and FAQ buttons
         Box login = Box.createHorizontalBox();
-        login.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
+        login.setAlignmentX(Component.LEFT_ALIGNMENT); // Align to the left
+
+        // Create and style the login button
         JButton loginButton = GUI.button("Login", 110, 27, 15);
         loginButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        loginButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
-        loginButton.setForeground(Color.WHITE);  // Set text color to white
+        loginButton.setBorder(BorderFactory.createLineBorder(Color.WHITE)); // White border
+        loginButton.setForeground(Color.WHITE); // White text
+
+        // Create and style the FAQ button
         JButton faqButton = GUI.button("FAQs", 110, 27, 15);
         faqButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        faqButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
-        faqButton.setForeground(Color.WHITE);  // Set text color to white
-       
-        login.add(Box.createRigidArea(new Dimension(70,40)));
+        faqButton.setBorder(BorderFactory.createLineBorder(Color.WHITE)); // White border
+        faqButton.setForeground(Color.WHITE); // White text
+
+        // Add buttons with spacing to the login box
+        login.add(Box.createRigidArea(new Dimension(70, 40)));
         login.add(loginButton);
-        login.add(Box.createRigidArea(new Dimension(10,0)));
+        login.add(Box.createRigidArea(new Dimension(10, 0)));
         login.add(faqButton);
-        login.add(Box.createRigidArea(new Dimension(0,20)));
-    
-        // menuBox.add(loginButton);
-        // menuBox.add(faqButton);
-        // menuBox.add(Box.createRigidArea(new Dimension(0,20)));
+        login.add(Box.createRigidArea(new Dimension(0, 20)));
 
+        // Add login box and spacing to the menu box
         menuBox.add(login);
-        menuBox.add(Box.createRigidArea(new Dimension(0, 20))); // Space below the buttons
+        menuBox.add(Box.createRigidArea(new Dimension(0, 20)));
 
-        // Add the Bushnell logo to the left side
+        // Load and add Bushnell logo to the menu
         ImageIcon bushnellLogo = new ImageIcon(getClass().getResource("/resources/bushnellLight.png"));
         Image scaledLogo = bushnellLogo.getImage().getScaledInstance(300, -1, Image.SCALE_SMOOTH);
         JLabel logoLabel = new JLabel(new ImageIcon(scaledLogo));
-        
         logoLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        menuBox.add(Box.createRigidArea(new Dimension(0,10)));
+        menuBox.add(Box.createRigidArea(new Dimension(0, 10)));
         menuBox.add(logoLabel);
-        menuBox.add(Box.createRigidArea(new Dimension(0,50)));
-        
+        menuBox.add(Box.createRigidArea(new Dimension(0, 50)));
+
+        // Create a title box with information and add it to the menu
         Box titleBox = Box.createVerticalBox();
         titleBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        titleBox.add(GUI.text("COUNSELING CENTER", 300, 30, 26, Color.WHITE, "left"));
-        titleBox.add(Box.createRigidArea(new Dimension(0,0)));
-        titleBox.add(GUI.text("755 East 11th Avenue, Eugene, OR 97401 ", 300, 30, 13, Color.WHITE, "left"));
-        titleBox.add(Box.createRigidArea(new Dimension(0,50)));
+        titleBox.add(GUI.text("COUNSELING CENTER", 300, 30, 26, Color.WHITE, "left")); // Title
+        titleBox.add(GUI.text("755 East 11th Avenue, Eugene, OR 97401 ", 300, 30, 13, Color.WHITE, "left")); // Address
+        titleBox.add(Box.createRigidArea(new Dimension(0, 50)));
         menuBox.add(titleBox);
 
-        // Create buttons for Appointments, Client Information, and Online Advice
+        // Create navigation buttons for sections
         Box buttons = Box.createVerticalBox();
         buttons.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         JButton appointmentButton = GUI.button("Appointment", 300, 50, 20);
-        appointmentButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
-        appointmentButton.setForeground(Color.WHITE);  // Set text color to white
+        appointmentButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        appointmentButton.setForeground(Color.WHITE);
 
         JButton clientInformationButton = GUI.button("Client Information", 300, 50, 20);
-        clientInformationButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
-        clientInformationButton.setForeground(Color.WHITE);  // Set text color to white
+        clientInformationButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        clientInformationButton.setForeground(Color.WHITE);
 
         JButton onlineAdviceButton = GUI.button("Online Advice", 300, 50, 20);
-        onlineAdviceButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));  // Set a square border
-        onlineAdviceButton.setForeground(Color.WHITE);  // Set text color to white
+        onlineAdviceButton.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        onlineAdviceButton.setForeground(Color.WHITE);
 
+        // Add buttons with spacing
         buttons.add(appointmentButton);
-        buttons.add(Box.createRigidArea(new Dimension(0,20)));
+        buttons.add(Box.createRigidArea(new Dimension(0, 20)));
         buttons.add(clientInformationButton);
-        buttons.add(Box.createRigidArea(new Dimension(0,20)));
+        buttons.add(Box.createRigidArea(new Dimension(0, 20)));
         buttons.add(onlineAdviceButton);
-        
         menuBox.add(buttons);
 
-        // create panels for each sub-menu
-        JPanel faqPanel               = FAQs.MakeGUI();
-        JPanel appointmentPanel       = Appointment.MakeGUI();
+        // Create and initialize various sub-panels
+        JPanel faqPanel = FAQs.MakeGUI();
+        JPanel appointmentPanel = Appointment.MakeGUI();
         JPanel clientInformationPanel = ClientInformation.MakeGUI();
-        JPanel onlineAdvicePanel      = OnlineAdvice.MakeGUI();
-        JPanel welcomePanel           = Welcome.MakeGUI();
+        JPanel onlineAdvicePanel = OnlineAdvice.MakeGUI();
+        JPanel welcomePanel = Welcome.MakeGUI();
 
-        
-        // create a card panel (only one panel visible at a time)
+        // Create a card panel for dynamic switching between views
         JPanel cardPanel = new JPanel(new CardLayout());
-        JPanel loginPanel             = Login.MakeGUI(cardPanel);
+        JPanel loginPanel = Login.MakeGUI(cardPanel);
 
+        // Add panels to the card panel
         cardPanel.add(faqPanel, "FAQs");
-        cardPanel.add(appointmentPanel,"appointment");
-        cardPanel.add(clientInformationPanel,"clientInformation");
-        cardPanel.add(onlineAdvicePanel,"onlineAdvice");
-        cardPanel.add(welcomePanel,"Welcome");
-        cardPanel.add(loginPanel,"Login");
-
+        cardPanel.add(appointmentPanel, "appointment");
+        cardPanel.add(clientInformationPanel, "clientInformation");
+        cardPanel.add(onlineAdvicePanel, "onlineAdvice");
+        cardPanel.add(welcomePanel, "Welcome");
+        cardPanel.add(loginPanel, "Login");
 
         subMenuBox.add(cardPanel);
 
+        // Set initial view to "Login"
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-        cardLayout.show(cardPanel,"Login");
+        cardLayout.show(cardPanel, "Login");
 
-        //showButtons(false);
-
-
-        // button listeners
+        // Add listeners to change the displayed panel on button click
         appointmentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"appointment");
-                //showButtons(true);
-
+                cardLayout.show(cardPanel, "appointment");
             }
         });
 
         clientInformationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"clientInformation");
-               // showButtons(true);
-
+                cardLayout.show(cardPanel, "clientInformation");
             }
         });
 
         onlineAdviceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"onlineAdvice");
-                //showButtons(true);
-
+                cardLayout.show(cardPanel, "onlineAdvice");
             }
         });
 
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"Login");
-                //showButtons(false);
+                cardLayout.show(cardPanel, "Login");
             }
         });
 
         faqButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.show(cardPanel,"FAQs");
-                //showButtons(false);
+                cardLayout.show(cardPanel, "FAQs");
             }
         });
 
-        mainPanel.setVisible(true);   
-        return mainPanel;    
+        mainPanel.setVisible(true); // Make panel visible
+        return mainPanel; // Return main panel
     }
 }
