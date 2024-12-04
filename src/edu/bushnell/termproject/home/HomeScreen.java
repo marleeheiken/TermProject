@@ -49,8 +49,8 @@ public class HomeScreen {
         // Create a main panel
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS)); // Horizontal alignment
-        mainPanel.setPreferredSize(new Dimension(1400, 800));
-        mainPanel.setMaximumSize(new Dimension(1400, 800));
+        mainPanel.setPreferredSize(new Dimension(1550, 800));
+        mainPanel.setMaximumSize(new Dimension(1550, 800));
         mainPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.setAlignmentY(Component.TOP_ALIGNMENT);
 
@@ -66,8 +66,8 @@ public class HomeScreen {
         menuBox.setAlignmentY(Component.TOP_ALIGNMENT);
 
         Box subMenuBox = Box.createHorizontalBox();
-        subMenuBox.setPreferredSize(new Dimension(1060, 720));
-        subMenuBox.setMaximumSize(new Dimension(1060, 720));
+        subMenuBox.setPreferredSize(new Dimension(1200, 720));
+        subMenuBox.setMaximumSize(new Dimension(1200, 720));
         subMenuBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         subMenuBox.setAlignmentX(Component.CENTER_ALIGNMENT);
         subMenuBox.setAlignmentY(Component.TOP_ALIGNMENT);

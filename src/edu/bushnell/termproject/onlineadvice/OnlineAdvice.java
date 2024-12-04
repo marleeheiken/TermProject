@@ -1,7 +1,5 @@
 package edu.bushnell.termproject.onlineadvice;
 
-import edu.bushnell.termproject.GUI;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -12,6 +10,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import javax.swing.*;
+
+import edu.bushnell.termproject.GUI;
 
 public class OnlineAdvice {
     public static JPanel MakeGUI() {
@@ -172,7 +172,6 @@ public class OnlineAdvice {
 
         panel.setVisible(true);
         return panel;
-
     }
     
 }
